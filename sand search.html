@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand Search - Academic Resources</title>
+    <link rel="icon" id="favicon" href="https://cdn-icons-png.flaticon.com/512/1164/1164954.png"> <!-- Default light mode favicon -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            transition: background 0.5s, color 0.5s;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Container Styling */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .container {
+            background: rgba(50, 50, 50, 0.9);
+        }
+
+        /* Input Fields */
+        input, select, button {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+            padding: 15px;
+            width: 95%;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background: red;
+            width: 50%;
+        }
+
+        .logout-btn:hover {
+            background: darkred;
+            width: 95%;
+        }
+
+        /* Dark Mode Button */
+        #darkModeToggle {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        #darkModeToggle img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Logo Styling */
+        .logo {
+            width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Welcome Note */
+        .welcome-note {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            max-width: 90%;
+            margin: auto;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .dark-mode .description {
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+        <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Light Mode">
+    </button>
+
+    <!-- Logo -->
+   <a href="#logo"> <img src="https://media-hosting.imagekit.io//ea665287c7bd4907/SAND%20SEARCH.png?Expires=1836019659&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0ori6~QjX~R9pDTAhAMpRMd7VfxKy9b67qX8jNLKx-GnDvHH1cWxll0XyWdBuIXpJrXkfEUABhGqNhV-WzIv8gi4EwZ9NgDMmayq57tlcB4vlbUOKZRFSDYoNtZUQ4pOZvbI2lCuppGZifr~rUs3JE3b0k1HJ0soFEwIXGyYBUDwZsDeFLt9YorjFc1K1jVa3eJas-lKmo-GbhuvWh-o-~3jGvQgjrNw8KZV1-eZgmaY14zeaDsWDvTnNXV91QCsxsp8-vzBZ~6DvYZl87jUT~6kGoyUBrvRzJw0zjBeJ8PhMOcVreZVtVCGZkqSWRKIirCfQkN6CsvsHpyu78snwA__" class="logo" id="logo" alt="Sand Search Logo"></a>
+    
+
+    <h1 class="welcome-note">Welcome to Sand Search</h1>
+    <p class="description"><b><p style="width: 50%;
+    margin: auto;
+    background: none;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #000;
+    border-radius: 10px;
+    margin-top: 50px;
+    color: none;">Welcome to Sand Search – Your Ultimate Academic Companion!</b><br>
+
+At Sand Search, we believe that quality education should be accessible, organized, and effortless. Designed exclusively for ICSE and CBSE students, our platform provides well-structured study materials, curated PDFs, and comprehensive video lectures, all categorized by class and subject for seamless learning.
+Whether you’re preparing for exams, revising concepts, or exploring new topics, Sand Search is your go-to hub for academic excellence.</p><hr>
+    <br><br><b>REGISTER TO MEET<BR>LOGIN TO COMPETE</BR></b>
+
+    <div class="container">
+        <section id="register">
+            <h2>Register</h2>
+            <input type="text" id="name" placeholder="Enter Name"><br>
+            <input type="text" id="classNum" placeholder="Enter Class (5-12)"><br>
+            <input type="text" id="school" placeholder="Enter School"><br>
+            <select id="board">
+                <option value="CBSE">-select board-</option>
+                <option value="ICSE">ICSE</option>
+                <option value="CBSE">CBSE</option>
+            </select><br>
+            <input type="text" id="state" placeholder="Enter State"><br>
+            <button onclick="register()">REGISTER</button>
+        </section>
+
+        <section id="login">
+            <h2>Already Registered? Login</h2>
+            <input type="text" id="loginName" placeholder="Enter Name" required><br>
+            <input type="checkbox" id="loginName" placeholder="Enter Name" required><br>
+            <button onclick="login()">LOGIN</button>
+        </section>
+
+        <section id="subjects" style="display:none;">
+            <h2>Subjects</h2>
+            <div id="subjectButtons"></div>
+            <div id="subjectResources"></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sand Search | Academic Resources for ICSE & CBSE | Complete design by Ayush Bharti</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            let body = document.body;
+            let themeIcon = document.getElementById("themeIcon");
+            let favicon = document.getElementById("favicon");
+
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                themeIcon.src = "https://cdn-icons-png.flaticon.com/512/6714/6714978.png"; // Moon icon for dark mode
+                favicon.href = "https://cdn-icons-png.flaticon.com/512/6714/6714978.png"; // Dark mode favicon
+            } else {
+                themeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Sun icon for light mode
+                favicon.href = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // Light mode favicon
+            }
+        }
+        
+        
+        
+        //--OTHER JAVASCRIPT--//
+        
+        
+         function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function register() {
+            let name = document.getElementById("name").value;
+            let classNum = document.getElementById("classNum").value;
+            let school = document.getElementById("school").value;
+            let board = document.getElementById("board").value;
+            let state = document.getElementById("state").value;
+
+            if (!name || !classNum || !school || !board || !state) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            let students = JSON.parse(localStorage.getItem("students")) || [];
+            students.push({ name, classNum, school, board, state });
+            localStorage.setItem("students", JSON.stringify(students));
+
+            alert("Registered successfully!");
+        }
+
+        function login() {
+            let name = document.getElementById("loginName").value;
+            let students = JSON.parse(localStorage.getItem("students")) || [];
+            let user = students.find(student => student.name === name);
+
+            if (user) {
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+                document.getElementById("register").style.display = "none";
+                document.getElementById("login").style.display = "none";
+                document.getElementById("subjects").style.display = "block";
+                showSubjects(user.classNum, user.board);
+            } else {
+                alert("User not found! Please register.");
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            location.reload();
+        }
+
+        function showSubjects(classNum, board) {
+            let subjects = {
+                "ICSE": {
+                    "5": ["Maths", "Science", "SST", "Hindi", "English"],
+                    "6": ["Maths", "Science", "History", "Geography", "Hindi", "English"],
+                    "7": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "English"],
+                    "8": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "English"],
+                    "9": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "10": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "11": ["Maths", "Physics", "Biology", "Chemistry", "History", "Sociology", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "12": ["Maths", "Physics", "Biology", "Chemistry", "History", "Sociology", "Computer", "Hindi", "Economics", "Commerce", "English"]
+                },
+                "CBSE": {
+                    "5": ["Maths", "Science", "SST", "Hindi", "English"],
+                    "6": ["Maths", "Science", "History", "Geography", "Hindi", "English"],
+                    "7": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "English"],
+                    "8": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "English"],
+                    "9": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "10": ["Maths", "Physics", "Biology", "Chemistry", "History", "Geography", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "11": ["Maths", "Physics", "Biology", "Chemistry", "History", "Sociology", "Computer", "Hindi", "Economics", "Commerce", "English"],
+                    "12": ["Maths", "Physics", "Biology", "Chemistry", "History", "Sociology", "Computer", "Hindi", "Economics", "Commerce", "English"]
+                }
+            };
+
+            let subjectDiv = document.getElementById("subjectButtons");
+            subjectDiv.innerHTML = "";
+
+            if (subjects[board] && subjects[board][classNum]) {
+                subjects[board][classNum].forEach(sub => {
+                    let btn = document.createElement("button");
+                    btn.textContent = sub;
+                    btn.onclick = () => showSubjectResources(sub, classNum, board);
+                    subjectDiv.appendChild(btn);
+                });
+            }
+        }
+
+        function showSubjectResources(subject, classNum, board) {
+            let resources = {
+                "ICSE": {
+                    "5": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Science": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "SST": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                        
+                    },
+                    "6": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Science": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                     "7": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                    "8": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                     "9": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "10": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "11": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Sociology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "12": {
+                         "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Sociology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                },
+                "CBSE": {
+                    "5": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Science": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "SST": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                        
+                    },
+                    "6": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Science": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                     "7": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English ": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi ": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                    "8": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English ": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi ": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    },
+                     "9": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "10": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Geography": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "11": {
+                        "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Sociology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                    },
+                    "12": {
+                         "Maths": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Physics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Chemistry": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Biology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Sociology": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "History": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "English": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Hindi": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Computer": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Economics": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" },
+                        "Commerce": { pdf: "https://example.com/icse9-maths.pdf", video: "https://youtube.com/icse9-maths" }
+                    }
+                }
+            };
+
+            let resDiv = document.getElementById("subjectResources");
+            resDiv.innerHTML = `<p><b>${subject}</b></p>
+                                <a href="${resources[board][classNum][subject].pdf}" target="_blank">View  PDF</a><br>
+                                <a href="${resources[board][classNum][subject].video}" target="_blank">Explinatory Video</a>`;
+        }
+    </script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        
+    // Initialize EmailJS 
+        
+emailjs.init("RMRw7QkQRhNHHJOCb");
+
+function register() {
+    let name = document.getElementById("name").value;
+    let classNum = document.getElementById("classNum").value;
+    let school = document.getElementById("school").value;
+    let board = document.getElementById("board").value;
+    let state = document.getElementById("state").value;
+
+    if (!name || !classNum || !school || !board || !state) {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.push({ name, classNum, school, board, state });
+    localStorage.setItem("students", JSON.stringify(students));
+
+    alert("Registered successfully!");
+
+    // Prepare email template parameters
+    let templateParams = {
+        to_email: "ayushbharti.official123@gmail.com", // Your email
+        from_name: name,
+        class: classNum,
+        school: school,
+        board: board,
+        state: state
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_er9cmys", "template_z8nzw8u", templateParams)
+        .then(function(response) {
+            console.log("Email sent successfully", response);
+        }, function(error) {
+            console.log("Email failed to send", error);
+        });
+}</script>
+</body>
+</html>
